@@ -17,4 +17,16 @@ class ReviewForm(forms.Form):
 class ReviewForm(ModelForm):
     class Meta:
         model = Review
-        fields = ['first_name','last_name', 'stars']
+        fields = "__all__" # passing in all model fields as form fields
+
+        labels = {
+            'first_name': 'YOUR FIRST NAME',
+            'last_name': 'YOUR LAST NAME',
+            'stars' : 'Rating'
+        }
+        error_messages = {
+            'stars':{
+                'min_value':'YO! min value is 1',
+                'max_value':'YO! max value is 5'
+            }
+        }
